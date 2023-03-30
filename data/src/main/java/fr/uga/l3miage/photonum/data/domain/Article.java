@@ -1,6 +1,6 @@
-package main.java.fr.uga.l3miage.photonum.data.domain;
+package fr.uga.l3miage.photonum.data.domain;
 
-import fr.uga.l3miage.photonum.data.domain.Impression;
+import fr.uga.l3miage.photonum.data.Enum.Reference;
 
 public class Article {
     private float prix;
