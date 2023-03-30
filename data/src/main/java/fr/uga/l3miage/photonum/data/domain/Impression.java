@@ -16,4 +16,5 @@ public class Impression {
     private Long id; // remplacer car String si besoin
 
     private Client proprietaire;
+    private TypeImpression typeImpression;
 }
