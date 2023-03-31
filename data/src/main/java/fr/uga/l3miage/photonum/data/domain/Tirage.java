@@ -1,7 +1,13 @@
 package fr.uga.l3miage.photonum.data.domain;
 
+import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Tirage extends Impression {
-    private Set<PhotoTirage> photosTirage;
+    @OneToMany
+    private List<PhotoTirage> photosTirage;
 }

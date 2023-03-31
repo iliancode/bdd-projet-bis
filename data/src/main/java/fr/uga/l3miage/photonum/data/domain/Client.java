@@ -2,21 +2,39 @@ package fr.uga.l3miage.photonum.data.domain;
 
 import java.util.*;
 
-import fr.uga.l3miage.photonum.data.domain.Impression;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "client")
 public class Client {
     
+    @Id
+    @GeneratedValue
+    private long id;
+    @Column(name = "mail")
     private String mail;
-    
+    @Column(name = "nom")
     private String nom;
+    @Column(name = "prenom")
     private String prenom;
+    @Column(name = "motDePasse")
     private String motDePasse;
 
-    private Set<Adresse> adresses;
+    @OneToMany
+    private List<Adresse> adresses;
 
-    private Set<Commande> commandes;
+    @OneToMany (mappedBy = "clientCommande")
+    private List<Commande> commandes;
 
-    private Set<Image> images;
+    @OneToMany (mappedBy = "clientImage")
+    private List<Image> images;
 
-    private Set<Impression> impressions;
+    @OneToMany (mappedBy = "clientImpression")
+    private List<Impression> impressions;
 }

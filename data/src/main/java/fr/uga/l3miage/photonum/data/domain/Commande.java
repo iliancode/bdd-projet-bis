@@ -1,14 +1,33 @@
 package fr.uga.l3miage.photonum.data.domain;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "commande")
 public class Commande {
+
+    @Id
+    @GeneratedValue
     private Long id;
+    @Column(name = "dateCommande")
     private Date dateCommande;
+    @Column(name = "prixTotal")
     private Float prixTotal;
 
-    private Client client;
+    @OneToOne
+    private Client clientCommande;
 
-    private Set<Article> articles;
+    @OneToMany
+    private List<Article> articles;
 }
