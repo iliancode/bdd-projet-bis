@@ -1,21 +1,22 @@
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Cadre.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/Enum/TypeImpression.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Page.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/repo/ImpressionRepository.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Impression.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/Enum/QualiteCadre.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Photo.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/Enum/TailleCadre.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Calendrier.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/LigneCatalogue.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Tirage.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/repo/CRUDRepository.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/Enum/Reference.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/PhotoTirage.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Commande.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Album.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Catalogue.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Image.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Adresse.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Client.java
-/Users/alvin/Desktop/NOUVEAU BDD/bdd-projet-bis/data/src/main/java/fr/uga/l3miage/photonum/data/domain/Article.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\main\java\fr\uga\l3miage\photonum\data\Enum\QualiteCadre.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Client.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\repo\AdresseRepository.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Calendrier.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Impression.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Catalogue.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\main\java\fr\uga\l3miage\photonum\data\Enum\Reference.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Photo.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\repo\ImpressionRepository.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\main\java\fr\uga\l3miage\photonum\data\Enum\TailleCadre.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Album.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\PhotoTirage.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Image.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Tirage.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\LigneCatalogue.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Commande.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Cadre.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\repo\CRUDRepository.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Page.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\main\java\fr\uga\l3miage\photonum\data\Enum\TypeImpression.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Adresse.java
+C:\Users\chaym\OneDrive\Bureau\L3_MIAGE\BD\PROJET_BIS\bdd-projet-bis\data\src\main\java\fr\uga\l3miage\photonum\data\domain\Article.java

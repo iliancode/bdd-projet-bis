@@ -1,0 +1,10 @@
+fr\uga\l3miage\photonum\PhotoNumApplication.class
+fr\uga\l3miage\photonum\impression\PageDTO.class
+fr\uga\l3miage\photonum\impression\ImpressionMapperImpl.class
+fr\uga\l3miage\photonum\Adresse\AdresseMapper.class
+fr\uga\l3miage\photonum\impression\ImpressionController.class
+fr\uga\l3miage\photonum\impression\ImpressionDTO.class
+fr\uga\l3miage\photonum\impression\ImpressionMapper.class
+fr\uga\l3miage\photonum\Adresse\AdresseController.class
+fr\uga\l3miage\photonum\Adresse\AdresseDTO.class
+fr\uga\l3miage\photonum\Adresse\AdresseMapperImpl.class

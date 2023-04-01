@@ -1,0 +1,4 @@
+fr\uga\l3miage\photonum\service\base\BaseService.class
+fr\uga\l3miage\photonum\service\ImpressionService.class
+fr\uga\l3miage\photonum\service\AdresseService.class
+fr\uga\l3miage\photonum\service\EntityNotFoundException.class
