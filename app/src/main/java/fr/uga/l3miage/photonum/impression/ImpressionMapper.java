@@ -9,9 +9,9 @@ import java.util.Collection;
 public interface ImpressionMapper {
     ImpressionDTO entityToDTO(Impression impression);
 
-    Collection<ImpressionDTO> entityToDTO(Iterable<Impression> authors);
+    Collection<ImpressionDTO> entityToDTO(Iterable<Impression> impression);
 
-    Impression dtoToEntity(ImpressionDTO author);
+    Impression dtoToEntity(ImpressionDTO impression);
 
-    Collection<Impression> dtoToEntity(Iterable<ImpressionDTO> authors);
+    Collection<Impression> dtoToEntity(Iterable<ImpressionDTO> impression);
 }
