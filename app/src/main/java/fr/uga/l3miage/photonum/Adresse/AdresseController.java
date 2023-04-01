@@ -3,7 +3,9 @@ package fr.uga.l3miage.photonum.Adresse;
 
 import java.util.Collection;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.uga.l3miage.photonum.data.domain.Adresse;
 import fr.uga.l3miage.photonum.service.AdresseService;
 import fr.uga.l3miage.photonum.service.EntityNotFoundException;
+import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/api/v1")
+@RequestMapping(value = "/api/v1", produces = "application/json")
 public class AdresseController {
+   
+    
     private final AdresseService adresseService;
     private final AdresseMapper adresseMapper;
-
 
 
     @Autowired
@@ -34,16 +38,20 @@ public class AdresseController {
     public Collection<AdresseDTO> getAllAdresses() {
         Collection<Adresse> adresse = adresseService.list();
 
+        System.out.println(adresseMapper.entityToDTO(adresse).toString());
         return adresse.stream()
                 .map(adresseMapper::entityToDTO)
                 .toList();
     }
 
-    @PostMapping(value = "/adresses")
+    @PostMapping(value = "/adresses", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public AdresseDTO createAdresse(@RequestBody AdresseDTO adresse){
+    public AdresseDTO createAdresse(@RequestBody @Valid AdresseDTO adresse){
 
-        var saved = adresseService.save(adresseMapper.dtoToEntity(adresse));
-        return adresseMapper.entityToDTO(saved);
+        Adresse newAdresse = adresseMapper.dtoToEntity(adresse);
+
+        
+        newAdresse = adresseService.save(newAdresse);
+        return adresseMapper.entityToDTO(newAdresse);
     }
 }

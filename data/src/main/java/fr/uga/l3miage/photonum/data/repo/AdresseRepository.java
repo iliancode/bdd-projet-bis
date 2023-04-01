@@ -31,7 +31,7 @@ public class AdresseRepository implements CRUDRepository<Long, Adresse> {
 
     @Override
     public List<Adresse> all() {
-       return entityManager.createQuery("SELECT a FROM Adresse a", Adresse.class).getResultList();
+       return entityManager.createQuery("SELECT a FROM Adresse a ORDER BY id", Adresse.class).getResultList();
     }
 
     

@@ -7,5 +7,5 @@ public interface AdresseService extends BaseService<Adresse, Long> {
 
     Adresse save(Adresse adresse);
 
-
+    
 }
