@@ -1,5 +1,6 @@
 package fr.uga.l3miage.photonum.data.domain;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import jakarta.persistence.Column;
@@ -27,4 +28,16 @@ public class Commande {
 
     @OneToMany
     private List<Article> articles;
+
+    public Client getClient() {
+        return clientCommande;
+    }
+
+    public Collection<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles2) {
+        this.articles = articles2;
+    }
 }

@@ -1,5 +1,7 @@
 package fr.uga.l3miage.photonum.service;
 
+import java.util.Collection;
+
 import fr.uga.l3miage.photonum.data.domain.Article;
 import fr.uga.l3miage.photonum.service.base.BaseService;
 

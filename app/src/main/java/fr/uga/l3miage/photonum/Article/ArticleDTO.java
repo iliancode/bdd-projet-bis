@@ -1,4 +1,4 @@
-package fr.uga.l3miage.photonum.Article;
+package fr.uga.l3miage.photonum.article;
 
 import fr.uga.l3miage.photonum.impression.ImpressionDTO;
 import jakarta.validation.constraints.Min;

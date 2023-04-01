@@ -1,4 +1,4 @@
-package fr.uga.l3miage.photonum.Article;
+package fr.uga.l3miage.photonum.article;
 
 import fr.uga.l3miage.photonum.data.domain.Article;
 import fr.uga.l3miage.photonum.impression.ImpressionDTO;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-01T20:48:10+0200",
+    date = "2023-04-01T23:57:42+0200",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.33.0.v20230213-1046, environment: Java 17.0.6 (Eclipse Adoptium)"
 )
 @Component
