@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-02T00:53:24+0200",
+    date = "2023-04-02T01:24:59+0200",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.33.0.v20230218-1114, environment: Java 17.0.6 (Eclipse Adoptium)"
 )
 @Component
@@ -23,19 +23,19 @@ public class ClientsMapperImpl implements ClientsMapper {
             return null;
         }
 
+        Long id = null;
         String mail = null;
         String nom = null;
         String prenom = null;
         String motDePasse = null;
         Collection<AdresseDTO> adresses = null;
 
+        id = client.getId();
         mail = client.getMail();
         nom = client.getNom();
         prenom = client.getPrenom();
         motDePasse = client.getMotDePasse();
         adresses = adresseListToAdresseDTOCollection( client.getAdresses() );
-
-        Long id = null;
 
         ClientsDTO clientsDTO = new ClientsDTO( id, mail, nom, prenom, motDePasse, adresses );
 
@@ -65,6 +65,9 @@ public class ClientsMapperImpl implements ClientsMapper {
         Client client1 = new Client();
 
         client1.setAdresses( adresseDTOCollectionToAdresseList( client.adresses() ) );
+        if ( client.id() != null ) {
+            client1.setId( client.id() );
+        }
         client1.setMail( client.mail() );
         client1.setMotDePasse( client.motDePasse() );
         client1.setNom( client.nom() );

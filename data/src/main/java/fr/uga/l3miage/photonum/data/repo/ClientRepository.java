@@ -8,11 +8,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
 import java.util.List;
 
 @Repository
-public class ClientRepository implements CRUDRepository<String, Client> {
+public class ClientRepository implements CRUDRepository<Long, Client> {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -24,8 +23,8 @@ public class ClientRepository implements CRUDRepository<String, Client> {
     }
 
     @Override
-    public Client get(String mail) {
-        return entityManager.find(Client.class, mail);
+    public Client get(Long id) {
+        return entityManager.find(Client.class, id);
     }
 
     @Override
@@ -44,8 +43,8 @@ public class ClientRepository implements CRUDRepository<String, Client> {
                 .getResultList();
     }
 
-    public Client addCommande(int id, String mail) {
-        Client client = get(mail);
+    public Client addCommande(long id, String mail) {
+        Client client = get(id);
         Commande commande = entityManager.find(Commande.class, id);
         client.addCommande(commande);
         entityManager.persist(client);
@@ -77,4 +76,6 @@ public class ClientRepository implements CRUDRepository<String, Client> {
     public Client findByMail(String mail) {
         return null;
     }
+
+   
 }

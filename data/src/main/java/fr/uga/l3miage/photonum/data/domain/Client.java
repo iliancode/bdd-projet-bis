@@ -39,6 +39,13 @@ public class Client {
     @OneToMany (mappedBy = "clientImpression")
     private List<Impression> impressions;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     public void setNom(String nom) {
         this.nom = nom;
     }
