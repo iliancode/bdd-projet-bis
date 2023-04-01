@@ -24,7 +24,6 @@ public class PageRepository implements CRUDRepository<Long, Page> {
         return entityManager.find(Page.class, id);
     }
 
-
     @Override
     public void delete(Page page) {
         entityManager.remove(page);
