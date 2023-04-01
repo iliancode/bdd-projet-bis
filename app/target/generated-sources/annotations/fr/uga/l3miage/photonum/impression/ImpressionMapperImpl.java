@@ -1,5 +1,6 @@
 package fr.uga.l3miage.photonum.impression;
 
+import fr.uga.l3miage.photonum.data.domain.Client;
 import fr.uga.l3miage.photonum.data.domain.Impression;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-03-31T10:53:07+0200",
+    date = "2023-04-01T15:06:59+0200",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.33.0.v20230218-1114, environment: Java 17.0.6 (Eclipse Adoptium)"
 )
 @Component
@@ -20,7 +21,13 @@ public class ImpressionMapperImpl implements ImpressionMapper {
             return null;
         }
 
-        ImpressionDTO impressionDTO = new ImpressionDTO();
+        Long id = null;
+        Client clientImpression = null;
+
+        id = impression.getId();
+        clientImpression = impression.getClientImpression();
+
+        ImpressionDTO impressionDTO = new ImpressionDTO( id, clientImpression );
 
         return impressionDTO;
     }
@@ -46,6 +53,11 @@ public class ImpressionMapperImpl implements ImpressionMapper {
         }
 
         Impression impression = new Impression();
+
+        impression.setClientImpression( author.clientImpression() );
+        if ( author.id() != null ) {
+            impression.setId( author.id() );
+        }
 
         return impression;
     }

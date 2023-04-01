@@ -1,6 +1,5 @@
 package fr.uga.l3miage.photonum.data.domain;
 
-import fr.uga.l3miage.photonum.data.Enum.Reference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import main.java.fr.uga.l3miage.photonum.data.Enum.Reference;
 
 @Entity
 @Table(name = "article")
