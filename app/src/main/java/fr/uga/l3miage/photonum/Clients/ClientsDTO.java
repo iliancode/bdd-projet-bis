@@ -3,8 +3,6 @@ package fr.uga.l3miage.photonum.Clients;
 import java.util.Collection;
 
 import fr.uga.l3miage.photonum.Adresse.AdresseDTO;
-// import fr.uga.l3miage.photonum.Image.ImageDTO;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;
 
 public record ClientsDTO(
