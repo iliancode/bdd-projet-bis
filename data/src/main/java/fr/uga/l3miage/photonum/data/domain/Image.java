@@ -24,4 +24,42 @@ public class Image {
 
     @OneToOne
     private Client clientImage;
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getChemin() {
+        return chemin;
+    }
+    public void setChemin(String chemin) {
+        this.chemin = chemin;
+    }
+    public Float getResolutionPx() {
+        return resolutionPx;
+    }
+    public void setResolutionPx(Float resolutionPx) {
+        this.resolutionPx = resolutionPx;
+    }
+    public String getInfoPdv() {
+        return infoPdv;
+    }
+    public void setInfoPdv(String infoPdv) {
+        this.infoPdv = infoPdv;
+    }
+    public boolean isPartagee() {
+        return partagee;
+    }
+    public void setPartagee(boolean partagee) {
+        this.partagee = partagee;
+    }
+    public Client getClientImage() {
+        return clientImage;
+    }
+    public void setClientImage(Client clientImage) {
+        this.clientImage = clientImage;
+    }
+    
 }
