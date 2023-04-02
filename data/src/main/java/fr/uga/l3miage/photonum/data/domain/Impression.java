@@ -20,6 +20,9 @@ public class Impression {
     @Column(name = "typeImpression")
     private TypeImpression typeImpression;
 
+    @Column(name = "enCours")
+    private boolean enCours;
+
     //getter et setter
 
     public long getId() {
@@ -44,5 +47,13 @@ public class Impression {
 
     public void setTypeImpression(TypeImpression typeImpression) {
         this.typeImpression = typeImpression;
+    }
+
+    public boolean isEnCours() {
+        return enCours;
+    }
+
+    public void setEnCours(boolean enCours) {
+        this.enCours = enCours;
     }
 }

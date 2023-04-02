@@ -16,4 +16,6 @@ public interface CommandeService extends BaseService<Commande, Long> {
 
     Collection<Commande> getByClient(Client client);
 
+    Commande detailsCommande(Long id);
+
 }

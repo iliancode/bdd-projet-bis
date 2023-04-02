@@ -1,4 +1,4 @@
-package fr.uga.l3miage.photonum.article;
+package fr.uga.l3miage.photonum.Article;
 
 import java.util.Collection;
 

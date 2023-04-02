@@ -1,6 +1,6 @@
 package fr.uga.l3miage.photonum.commande;
 
-import fr.uga.l3miage.photonum.article.ArticleDTO;
+import fr.uga.l3miage.photonum.Article.ArticleDTO;
 import fr.uga.l3miage.photonum.client.ClientDTO;
 import fr.uga.l3miage.photonum.data.domain.Article;
 import fr.uga.l3miage.photonum.data.domain.Commande;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-01T23:57:42+0200",
+    date = "2023-04-02T22:33:46+0200",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.33.0.v20230213-1046, environment: Java 17.0.6 (Eclipse Adoptium)"
 )
 @Component
@@ -62,12 +62,12 @@ public class CommandeMapperImpl implements CommandeMapper {
 
         id = article.getId();
 
-        float price = 0.0f;
-        int quantity = 0;
+        float prix = 0.0f;
+        int quantite = 0;
         String reference = null;
         ImpressionDTO impression = null;
 
-        ArticleDTO articleDTO = new ArticleDTO( id, price, quantity, reference, impression );
+        ArticleDTO articleDTO = new ArticleDTO( id, prix, quantite, reference, impression );
 
         return articleDTO;
     }

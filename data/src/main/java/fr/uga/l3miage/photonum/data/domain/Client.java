@@ -45,6 +45,10 @@ public class Client {
         return nom;
     }
 
+    public Long getId(){
+        return this.id;
+    }
+
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }

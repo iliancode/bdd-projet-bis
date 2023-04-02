@@ -1,7 +1,7 @@
 package fr.uga.l3miage.photonum.commande;
 
 import fr.uga.l3miage.photonum.client.ClientDTO;
-import fr.uga.l3miage.photonum.article.ArticleDTO;
+import fr.uga.l3miage.photonum.Article.ArticleDTO;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 

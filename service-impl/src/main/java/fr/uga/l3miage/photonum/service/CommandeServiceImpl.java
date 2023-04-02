@@ -60,4 +60,10 @@ public class CommandeServiceImpl implements CommandeService {
     public Collection<Commande> getByClient(Client client) {
         return commandeRepository.getByClient(client);
     }
+
+    @Override
+    public Commande detailsCommande(Long id) {
+        return commandeRepository.detailsCommande(id);
+    }
+
 }

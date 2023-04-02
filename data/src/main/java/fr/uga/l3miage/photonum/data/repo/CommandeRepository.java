@@ -42,8 +42,18 @@ public class CommandeRepository implements CRUDRepository<Long, Commande> {
     
     public Collection<Commande> getByClient(Client client) {
         TypedQuery<Commande> query = entityManager.createQuery(
-                "SELECT c FROM Commande c WHERE c.client = :client", Commande.class);
-        query.setParameter("client", client);
+                "SELECT c FROM Commande c JOIN c.clientCommande cc WHERE cc.id = :clientId", Commande.class);
+        query.setParameter("clientId", client.getId());
         return query.getResultList();
+    }
+
+    // TODO: tester ca
+    public Commande detailsCommande(Long id){
+
+        TypedQuery<Commande> query = entityManager.createQuery(
+        "SELECT c FROM Commande c JOIN FETCH c.clientCommande WHERE c.id = :id", 
+        Commande.class);
+        query.setParameter("id", id);
+        return query.getSingleResult();
     }
 }

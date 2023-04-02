@@ -9,6 +9,7 @@ public record ImpressionDTO(
     @NotBlank(message = "owner is mandatory")
     Client clientImpression,
     @NotBlank(message = "typeImpression is mandatory")
-    TypeImpression typeImpression
+    TypeImpression typeImpression,
+    boolean status
 ) {
 }

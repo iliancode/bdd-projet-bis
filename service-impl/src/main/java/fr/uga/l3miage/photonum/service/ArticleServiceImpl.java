@@ -66,5 +66,4 @@ public class ArticleServiceImpl implements ArticleService {
         // existingArticle.setQuantity(article.getQuantity());
         return articleRepository.save(existingArticle);
     }
-
 }

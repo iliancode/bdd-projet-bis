@@ -1,4 +1,4 @@
-package fr.uga.l3miage.photonum.article;
+package fr.uga.l3miage.photonum.Article;
 
 import fr.uga.l3miage.photonum.data.domain.Article;
 import org.mapstruct.Mapper;
