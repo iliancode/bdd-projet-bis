@@ -5,9 +5,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -32,14 +34,11 @@ public class ImageController {
 
     @GetMapping("/images")
     public Collection<ImageDTO> getAllImages() {
-        Collection<Image> image = imageService.list();
-
-        System.out.println(imageMapper.entityToDTO(image).toString());
-        return image.stream()
-        .map(imageMapper::entityToDTO)
-        .toList();
+        Collection<Image> images = imageService.list();
+        return images.stream()
+                .map(imageMapper::entityToDTO)
+                .toList();
     }
-
 
     @PostMapping(value = "/images" ,consumes = MediaType.APPLICATION_JSON_VALUE )
     @ResponseStatus(HttpStatus.CREATED)
@@ -48,7 +47,6 @@ public class ImageController {
         image = imageService.save(image);
         return imageMapper.entityToDTO(image);
     }
-    
 
     @GetMapping("/images/{id}")
     public ImageDTO getImage(@PathVariable Long id) throws EntityNotFoundException {
@@ -56,47 +54,41 @@ public class ImageController {
         return imageMapper.entityToDTO(image);
     }
 
-    //modificationImage
-    @PostMapping(value = "/images/{id}",consumes = MediaType.APPLICATION_JSON_VALUE )
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping(value = "/images/{id}", consumes = MediaType.APPLICATION_JSON_VALUE )
+    @ResponseStatus(HttpStatus.OK)
     public void updateImage(@PathVariable Long id, @RequestBody ImageDTO imageDTO) throws EntityNotFoundException {
         Image image = imageMapper.dtoToEntity(imageDTO);
         image.setId(id);
         imageService.save(image);
     }
 
-    @PostMapping(value = "/images/{id}",consumes = MediaType.APPLICATION_JSON_VALUE )
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateImageChemin(@PathVariable Long id, @RequestBody ImageDTO imageDTO, @RequestBody String chemin ) throws EntityNotFoundException {
-        Image image = imageMapper.dtoToEntity(imageDTO);
+    @PutMapping(value = "/images/{id}/chemin", consumes = MediaType.APPLICATION_JSON_VALUE )
+    @ResponseStatus(HttpStatus.OK)
+    public void updateImageChemin(@PathVariable Long id, @PathVariable String chemin) throws EntityNotFoundException {
+        Image image = imageService.get(id);
         image.setChemin(chemin);
         imageService.save(image);
     }
 
-    @PostMapping(value = "/images/{id}",consumes = MediaType.APPLICATION_JSON_VALUE )
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateImagePx(@PathVariable Long id, @RequestBody ImageDTO imageDTO, @RequestBody float px ) throws EntityNotFoundException {
-        Image image = imageMapper.dtoToEntity(imageDTO);
+    @PutMapping(value = "/images/{id}/px", consumes = MediaType.APPLICATION_JSON_VALUE )
+    @ResponseStatus(HttpStatus.OK)
+    public void updateImagePx(@PathVariable Long id, @PathVariable float px) throws EntityNotFoundException {
+        Image image = imageService.get(id);
         image.setResolutionPx(px);
         imageService.save(image);
     }
 
-    @PostMapping(value = "/images/{id}",consumes = MediaType.APPLICATION_JSON_VALUE )
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateImagePdv(@PathVariable Long id, @RequestBody ImageDTO imageDTO, @RequestBody String pdv ) throws EntityNotFoundException {
-        Image image = imageMapper.dtoToEntity(imageDTO);
+    @PutMapping(value = "/images/{id}/pdv", consumes = MediaType.APPLICATION_JSON_VALUE )
+    @ResponseStatus(HttpStatus.OK)
+    public void updateImagePdv(@PathVariable Long id, @PathVariable String pdv) throws EntityNotFoundException {
+        Image image = imageService.get(id);
         image.setInfoPdv(pdv);
         imageService.save(image);
     }
 
-    //supressionImage
-    @PostMapping(value = "/images/{id}",consumes = MediaType.APPLICATION_JSON_VALUE )
+    @DeleteMapping(value = "/images/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteImage(@PathVariable Long id) throws EntityNotFoundException {
         imageService.delete(id);
     }
-
-
 }
-
-

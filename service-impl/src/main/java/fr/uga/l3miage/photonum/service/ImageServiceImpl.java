@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.uga.l3miage.photonum.data.domain.Image;
+import fr.uga.l3miage.photonum.data.domain.Photo;
 import fr.uga.l3miage.photonum.data.repo.ImageRepository;
+import fr.uga.l3miage.photonum.data.repo.PhotoRepository;
 import jakarta.transaction.Transactional;
 
 
@@ -14,10 +16,12 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class ImageServiceImpl implements ImageService {
     private final ImageRepository imageRepository;
+    private final PhotoRepository photoRepository;
     // private final PhotoRepository photoRepository;
     @Autowired
-    public ImageServiceImpl(ImageRepository imageRepository) {
+    public ImageServiceImpl(ImageRepository imageRepository, PhotoRepository photoRepository) {
         this.imageRepository = imageRepository;
+        this.photoRepository = photoRepository;
     }   
 
     @Override
@@ -57,13 +61,22 @@ public class ImageServiceImpl implements ImageService {
     @Override
     public void delete(Long id) throws EntityNotFoundException { 
         Image image = imageRepository.get(id);
+
         if (image != null) {
             if (image.isPartagee() == false) {
-                // if (photoRepository.isImageIn(image) > 0) {
+                boolean imageIsUsed = false;
+                Collection<Photo> photos = photoRepository.all();
+                for (Photo photo : photos) {
+                    if (photo.getImage() == image) {
+                        imageIsUsed = true;
+                        break;
+                    }
+                }
+                if (imageIsUsed == false) {
                     imageRepository.delete(image);
-                // }else {
-                //     throw new EntityNotFoundException("l'image est lier a une photo");
-                // }
+                }else {
+                    throw new EntityNotFoundException("l'image est lier a une photo");
+                }
             }else {
                 throw new EntityNotFoundException("l'image est partagee");
             } 

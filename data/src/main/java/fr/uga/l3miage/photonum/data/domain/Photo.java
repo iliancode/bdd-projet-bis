@@ -23,6 +23,30 @@ public class Photo {
     private String parametreRetouche;
     @OneToOne
     private Image image;
-    
 
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getTexteDescriptif() {
+        return texteDescriptif;
+    }
+    public void setTexteDescriptif(String texteDescriptif) {
+        this.texteDescriptif = texteDescriptif;
+    }
+    public String getParametreRetouche() {
+        return parametreRetouche;
+    }
+    public void setParametreRetouche(String parametreRetouche) {
+        this.parametreRetouche = parametreRetouche;
+    }
+    public Image getImage() {
+        return image;
+    }
+    public void setImage(Image image) {
+        this.image = image;
+    }
+    
 }
