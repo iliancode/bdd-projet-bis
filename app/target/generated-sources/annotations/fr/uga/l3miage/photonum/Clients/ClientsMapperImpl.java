@@ -1,8 +1,10 @@
 package fr.uga.l3miage.photonum.Clients;
 
 import fr.uga.l3miage.photonum.Adresse.AdresseDTO;
+import fr.uga.l3miage.photonum.Image.ImageDTO;
 import fr.uga.l3miage.photonum.data.domain.Adresse;
 import fr.uga.l3miage.photonum.data.domain.Client;
+import fr.uga.l3miage.photonum.data.domain.Image;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -11,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-01T21:16:56+0200",
+    date = "2023-04-01T23:22:06+0200",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.33.0.v20230218-1114, environment: Java 17.0.6 (Eclipse Adoptium)"
 )
 @Component
@@ -28,16 +30,18 @@ public class ClientsMapperImpl implements ClientsMapper {
         String prenom = null;
         String motDePasse = null;
         Collection<AdresseDTO> adresses = null;
+        Collection<ImageDTO> images = null;
 
         mail = client.getMail();
         nom = client.getNom();
         prenom = client.getPrenom();
         motDePasse = client.getMotDePasse();
         adresses = adresseListToAdresseDTOCollection( client.getAdresses() );
+        images = imageListToImageDTOCollection( client.getImages() );
 
         Long id = null;
 
-        ClientsDTO clientsDTO = new ClientsDTO( id, mail, nom, prenom, motDePasse, adresses );
+        ClientsDTO clientsDTO = new ClientsDTO( id, mail, nom, prenom, motDePasse, adresses, images );
 
         return clientsDTO;
     }
@@ -65,6 +69,7 @@ public class ClientsMapperImpl implements ClientsMapper {
         Client client1 = new Client();
 
         client1.setAdresses( adresseDTOCollectionToAdresseList( client.adresses() ) );
+        client1.setImages( imageDTOCollectionToImageList( client.images() ) );
         client1.setMail( client.mail() );
         client1.setMotDePasse( client.motDePasse() );
         client1.setNom( client.nom() );
@@ -124,6 +129,43 @@ public class ClientsMapperImpl implements ClientsMapper {
         return collection;
     }
 
+    protected ImageDTO imageToImageDTO(Image image) {
+        if ( image == null ) {
+            return null;
+        }
+
+        Long id = null;
+        String chemin = null;
+        Float resolutionPx = null;
+        String infoPdv = null;
+        Boolean partagee = null;
+
+        id = image.getId();
+        chemin = image.getChemin();
+        resolutionPx = image.getResolutionPx();
+        infoPdv = image.getInfoPdv();
+        partagee = image.isPartagee();
+
+        Collection<ClientsDTO> clients = null;
+
+        ImageDTO imageDTO = new ImageDTO( id, chemin, resolutionPx, infoPdv, partagee, clients );
+
+        return imageDTO;
+    }
+
+    protected Collection<ImageDTO> imageListToImageDTOCollection(List<Image> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        Collection<ImageDTO> collection = new ArrayList<ImageDTO>( list.size() );
+        for ( Image image : list ) {
+            collection.add( imageToImageDTO( image ) );
+        }
+
+        return collection;
+    }
+
     protected Adresse adresseDTOToAdresse(AdresseDTO adresseDTO) {
         if ( adresseDTO == null ) {
             return null;
@@ -151,6 +193,37 @@ public class ClientsMapperImpl implements ClientsMapper {
         List<Adresse> list = new ArrayList<Adresse>( collection.size() );
         for ( AdresseDTO adresseDTO : collection ) {
             list.add( adresseDTOToAdresse( adresseDTO ) );
+        }
+
+        return list;
+    }
+
+    protected Image imageDTOToImage(ImageDTO imageDTO) {
+        if ( imageDTO == null ) {
+            return null;
+        }
+
+        Image image = new Image();
+
+        image.setChemin( imageDTO.chemin() );
+        image.setId( imageDTO.id() );
+        image.setInfoPdv( imageDTO.infoPdv() );
+        if ( imageDTO.partagee() != null ) {
+            image.setPartagee( imageDTO.partagee() );
+        }
+        image.setResolutionPx( imageDTO.resolutionPx() );
+
+        return image;
+    }
+
+    protected List<Image> imageDTOCollectionToImageList(Collection<ImageDTO> collection) {
+        if ( collection == null ) {
+            return null;
+        }
+
+        List<Image> list = new ArrayList<Image>( collection.size() );
+        for ( ImageDTO imageDTO : collection ) {
+            list.add( imageDTOToImage( imageDTO ) );
         }
 
         return list;
