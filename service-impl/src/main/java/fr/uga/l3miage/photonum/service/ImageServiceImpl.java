@@ -14,6 +14,7 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class ImageServiceImpl implements ImageService {
     private final ImageRepository imageRepository;
+    // private final PhotoRepository photoRepository;
     @Autowired
     public ImageServiceImpl(ImageRepository imageRepository) {
         this.imageRepository = imageRepository;
@@ -34,5 +35,40 @@ public class ImageServiceImpl implements ImageService {
     @Override 
     public Image save(Image image) {
         return imageRepository.save(image);
+    }
+
+
+    //Modifier Image
+    public Image modifierImageChemin(Image image, String chemin) {
+        image.setChemin(chemin);
+        return image;
+    }
+    public Image modifierImageResolutionPx(Image image, Float resolutionPx) {
+        image.setResolutionPx(resolutionPx);
+        return image;
+    }
+    public Image modifierImageInfoPdv (Image image, String infoPdv) {
+        image.setInfoPdv(infoPdv);
+        return image;
+    }
+
+    //Supprimer Image
+
+    @Override
+    public void delete(Long id) throws EntityNotFoundException { 
+        Image image = imageRepository.get(id);
+        if (image != null) {
+            if (image.isPartagee() == false) {
+                // if (photoRepository.isImageIn(image) > 0) {
+                    imageRepository.delete(image);
+                // }else {
+                //     throw new EntityNotFoundException("l'image est lier a une photo");
+                // }
+            }else {
+                throw new EntityNotFoundException("l'image est partagee");
+            } 
+        }else {
+            throw new EntityNotFoundException(null);
+        }
     }
 }
