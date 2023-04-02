@@ -6,7 +6,6 @@ import fr.uga.l3miage.photonum.data.domain.Adresse;
 import fr.uga.l3miage.photonum.data.domain.Client;
 import fr.uga.l3miage.photonum.data.domain.Image;
 import fr.uga.l3miage.photonum.data.domain.Impression;
-
 import java.util.Random;
 
 public class Fixtures {
@@ -46,7 +45,9 @@ public class Fixtures {
 
     public static Impression newImpression() {
         Impression impression = new Impression();
-        // ...
+        impression.setId(FAKER.number().randomNumber());
+        impression.setClientImpression(null);
+        impression.setTypeImpression(null);
         return impression;
     }
 }

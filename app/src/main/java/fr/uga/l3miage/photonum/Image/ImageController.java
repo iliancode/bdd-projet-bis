@@ -47,6 +47,7 @@ public class ImageController {
         return imageMapper.entityToDTO(image);
     }
     
+    
 }
 
 

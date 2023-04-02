@@ -1,5 +1,6 @@
 package fr.uga.l3miage.photonum.data.repo;
 
+import fr.uga.l3miage.photonum.data.domain.Client;
 import fr.uga.l3miage.photonum.data.domain.Impression;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -13,6 +14,7 @@ public class ImpressionRepository implements CRUDRepository<Long, Impression> {
     @PersistenceContext
     private EntityManager entityManager;
 
+    private ClientRepository clientRepository;
     @Override
     public Impression save(Impression impression) {
         entityManager.persist(impression);
@@ -36,4 +38,12 @@ public class ImpressionRepository implements CRUDRepository<Long, Impression> {
         return null;
     }
 
+     
+    public Impression newImpressionClientId(Long id, Impression impression){
+        Client client = clientRepository.get(id);
+        client.addImpression(impression);
+        entityManager.persist(impression);
+
+        return impression;
+    }
 }

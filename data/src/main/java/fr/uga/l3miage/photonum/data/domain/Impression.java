@@ -45,4 +45,5 @@ public class Impression {
     public void setTypeImpression(TypeImpression typeImpression) {
         this.typeImpression = typeImpression;
     }
+    
 }
