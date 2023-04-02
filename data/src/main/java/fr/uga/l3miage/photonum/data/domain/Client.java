@@ -2,8 +2,10 @@ package fr.uga.l3miage.photonum.data.domain;
 
 import java.util.*;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -25,7 +27,7 @@ public class Client {
     @Column(name = "motDePasse")
     private String motDePasse;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Adresse> adresses;
 
     @OneToMany (mappedBy = "clientCommande")

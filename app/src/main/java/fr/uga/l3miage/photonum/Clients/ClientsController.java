@@ -3,7 +3,6 @@ package fr.uga.l3miage.photonum.Clients;
 
 import java.util.Collection;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.MediaType;
 
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.uga.l3miage.photonum.data.domain.Client;
 import fr.uga.l3miage.photonum.service.ClientService;
-import fr.uga.l3miage.photonum.service.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 @RestController
@@ -37,7 +35,7 @@ public class ClientsController {
     public Collection<ClientsDTO> getAllClients() {
         Collection<Client> client = clientService.list();
 
-        System.out.println(clientMapper.entityToDTO(client).toString());
+        System.out.println("ici : " + clientMapper.entityToDTO(client).toString());
         return client.stream()
                 .map(clientMapper::entityToDTO)
                 .toList();
