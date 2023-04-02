@@ -36,9 +36,11 @@ public class Client {
     @OneToMany (mappedBy = "clientImage")
     private List<Image> images;
 
-    @OneToMany (mappedBy = "clientImpression")
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "clientImpression")
     private List<Impression> impressions;
 
+
+  
     public long getId() {
         return id;
     }

@@ -21,7 +21,6 @@ import jakarta.validation.Valid;
 @RequestMapping(value = "/api/v1", produces = "application/json")
 public class AdresseController {
    
-    
     private final AdresseService adresseService;
     private final AdresseMapper adresseMapper;
 
@@ -32,6 +31,7 @@ public class AdresseController {
         this.adresseMapper = adresseMapper;
     }
 
+    
     @GetMapping(value = "/adresses")
     public Collection<AdresseDTO> getAllAdresses() {
         Collection<Adresse> adresse = adresseService.list();

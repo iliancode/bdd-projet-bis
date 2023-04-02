@@ -6,6 +6,7 @@ import fr.uga.l3miage.photonum.service.base.BaseService;
 public interface ImpressionService extends BaseService<Impression, Long> {
 
     Impression save(Impression impression);
+    Impression saveWithId(Long clientId, Impression impression) throws EntityNotFoundException;
 
 
 }

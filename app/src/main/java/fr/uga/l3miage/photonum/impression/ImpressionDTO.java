@@ -6,8 +6,6 @@ import main.java.fr.uga.l3miage.photonum.data.Enum.TypeImpression;
 
 public record ImpressionDTO(
     Long id,
-    @NotBlank(message = "owner is mandatory")
-    Client clientImpression,
     @NotBlank(message = "typeImpression is mandatory")
     TypeImpression typeImpression
 ) {
