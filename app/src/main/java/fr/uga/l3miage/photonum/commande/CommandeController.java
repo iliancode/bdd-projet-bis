@@ -20,13 +20,13 @@ public class CommandeController {
         this.commandeService = commandeService;
     }
 
-    @GetMapping("")
+    @GetMapping("/commandes")
     public ResponseEntity<Collection<Commande>> getAllCommandes() {
         Collection<Commande> commandes = commandeService.list();
         return new ResponseEntity<>(commandes, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/commandes/{id}")
     public ResponseEntity<Commande> getCommandeById(@PathVariable("id") Long id) {
         try {
             Commande commande = commandeService.get(id);
@@ -36,13 +36,13 @@ public class CommandeController {
         }
     }
 
-    @PostMapping("")
+    @PostMapping("/commandes")
     public ResponseEntity<Commande> createCommande(@RequestBody Commande commande) {
         Commande savedCommande = commandeService.save(commande);
         return new ResponseEntity<>(savedCommande, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/commandes/{id}")
     public ResponseEntity<Commande> updateCommande(@PathVariable("id") Long id, @RequestBody Commande commande) {
         try {
             Commande updatedCommande = commandeService.update(commande);
@@ -52,7 +52,7 @@ public class CommandeController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/commandes/{id}")
     public ResponseEntity<HttpStatus> deleteCommande(@PathVariable("id") Long id) {
         try {
             commandeService.delete(id);
