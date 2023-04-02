@@ -20,10 +20,7 @@ public class ClientsServiceImp implements ClientService {
         this.clientRepository = clientRepository;
     }
     
-    @Override
-    public Client get(String mail) throws EntityNotFoundException {
-        return clientRepository.findByMail(mail);
-    }
+    
 
     @Override
     public Collection<Client> list()  {
@@ -38,6 +35,15 @@ public class ClientsServiceImp implements ClientService {
     @Override
     public Client update(Client client) {
         return clientRepository.save(client);
+    }
+
+
+
+
+
+    @Override
+    public Client get(Long id) throws EntityNotFoundException {
+       return clientRepository.get(id);
     }
 
 }

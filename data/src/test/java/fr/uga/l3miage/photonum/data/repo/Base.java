@@ -2,7 +2,6 @@ package fr.uga.l3miage.photonum.data.repo;
 
 import fr.uga.l3miage.photonum.TestApp;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
