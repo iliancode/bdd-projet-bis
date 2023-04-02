@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/commandes")
+@RequestMapping(value = "/api/v1", produces = "application/json")
 public class CommandeController {
 
     private final CommandeService commandeService;
@@ -26,12 +26,23 @@ public class CommandeController {
         return new ResponseEntity<>(commandes, HttpStatus.OK);
     }
 
+
     @GetMapping("/commandes/{id}")
     public ResponseEntity<Commande> getCommandeById(@PathVariable("id") Long id) {
         try {
             Commande commande = commandeService.get(id);
             return new ResponseEntity<>(commande, HttpStatus.OK);
         } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/commandes/{id}/details")
+    public ResponseEntity<Commande> getDetailsCommande(@PathVariable("id") Long id){
+        try{
+            Commande commande = commandeService.detailsCommande(id);
+            return new ResponseEntity<>(commande, HttpStatus.OK);
+        }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
