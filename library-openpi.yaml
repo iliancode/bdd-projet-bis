@@ -3,14 +3,23 @@ info:
   title: L3 Miage BDD Project
   description: |
     Manage Photo Library
+    *Create client
+    *Create adresse
+    *Create image
+    *Create impression
+    *Search for
+      *all clients
+      *all adresses
+      *all images
+      *all impressions
   version: 1.0.0
 servers:
   - url: "http://localhost:8080"
 paths:
   /api/v1/impressions:
     get:
-      summary: Get all impressions
-      operationId: find-impressions
+      summary: Get all clients
+      operationId: find-clients
       responses:
         200:
           description: OK
@@ -19,4 +28,131 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Impression"
+    post:
+      summary: Create a client
+      operationId: create-client
+      requestBody:
+        description: Client to create
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Client'
+      responses:
+        201:
+          description: Created
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Client'
+        400:
+          description: Bad Request
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  get:
+    summary: Get all adresses
+    operationId: find-adresses
+    responses:
+      200:
+        description: OK
+        content:
+          'application/json':
+            schema:
+              type: array
+              items:
+  post:
+    summary: Create an adresse
+    operationId: create-adresse
+    requestBody:
+      description: Adresse to create
+      required: true
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Adresse'
+    responses:
+      201:
+        description: Created
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Adresse'
+      400:
+        description: Bad Request
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Error'
+  get:
+    summary: Get all all images
+    operationId: find-images
+    responses:
+      200:
+        description: OK
+        content:
+          'application/json':
+            schema:
+              type: array
+              items:
+  post:
+    summary: Create an image
+    operationId: create-image
+    requestBody:
+      description: Image to create
+      required: true
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Image'
+    responses:
+      201:
+        description: Created
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Image'
+      400:
+        description: Bad Request
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Error'
+  get:
+    summary: Get all impressions
+    operationId: find-impressions
+    responses:
+      200:
+        description: OK
+        content:
+          'application/json':
+            schema:
+              type: array
+              items:
+  post:
+    summary: Create an impression
+    operationId: create-impression
+    requestBody:
+      description: Impression to create
+      required: true
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Impression'
+    responses:
+      201:
+        description: Created
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Impression'
+      400:
+        description: Bad Request
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Error'
+
+              
